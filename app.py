@@ -34,7 +34,9 @@ def show_profiles(teacher_id):
 
     # Getting the goal list from the teachers.json
     user_goals_list = []
-    time_available_list = []
+    week_days = {"mon": "Понедельник", "tue": "Вторник", "wed": "Среда", "thu": "Четверг", "fri": "Пятница",
+                 "sat": "Суббота", "sun": "Воскресенье"}
+
     for teacher in teachers["teachers"]:
         if teacher_id == teacher["id"]:
             name = teacher["name"]
@@ -43,13 +45,6 @@ def show_profiles(teacher_id):
             rating = teacher["rating"]
             price = teacher["price"]
             about = teacher["about"]
-            # Getting the available time for the teacher and add it to the list
-            for key in teacher.get("free").values():
-                print(key)
-
-
-
-
 
     # Compare if one list has the values in other list then save them to the new list
     total_goals = []
@@ -65,7 +60,9 @@ def show_profiles(teacher_id):
                              total_goals=total_goals,
                              rating=rating,
                              price=price,
-                             about=about)
+                             about=about,
+                             teacher=teacher,
+                             week_days=week_days)
     return output
 
 

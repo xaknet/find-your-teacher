@@ -95,9 +95,7 @@ def teacher_booking_form(teacher_id, week_day, booking_time):
                              name=name,
                              picture=picture,
                              week_day=week_day,
-                             booking_time=booking_time
-
-    )
+                             booking_time=booking_time)
     return output
 
 

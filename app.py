@@ -78,9 +78,26 @@ def request_sent():
     return output
 
 
-@app.route('/booking/<teacher_id>/<week_day>/<booking_time>/')
+@app.route('/booking/<int:teacher_id>/<week_day>/<booking_time>/')
 def teacher_booking_form(teacher_id, week_day, booking_time):
-    output = render_template("booking.html")
+
+    with open("teachers.json", "r") as teachers_file:
+        teachers = json.loads(teachers_file.read())
+        teachers_file.close()
+
+    for teacher in teachers["teachers"]:
+        if teacher_id == teacher["id"]:
+            name = teacher["name"]
+            picture = teacher["picture"]
+
+    output = render_template("booking.html",
+                             teacher_id=teacher_id,
+                             name=name,
+                             picture=picture,
+                             week_day=week_day,
+                             booking_time=booking_time
+
+    )
     return output
 
 

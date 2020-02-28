@@ -27,10 +27,10 @@
         <div class="col-10 col-md-6 offset-1 offset-md-3 mb-3">
             <form action="booking_done.html" class="card mb-3">
                 <div class="card-body text-center pt-5">
-                    <img src="/static/pict1.png" class="mb-3" width="95" alt="">
-                    <h2 class="h5 card-title mt-2 mb-2">Morris Simmmons</h2>
+                    <img src="{{ picture }}" class="mb-3" width="95" alt="">
+                    <h2 class="h5 card-title mt-2 mb-2">{{ name }}</h2>
                     <p class="my-1">Запись на пробный урок</p>
-                    <p class="my-1">Вторник, 12:00</p>
+                    <p class="my-1">{{ week_day }}, {{ booking_time }}</p>
                 </div>
                 <hr/>
                 <div class="card-body mx-3">
